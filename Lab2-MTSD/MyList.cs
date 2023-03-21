@@ -8,58 +8,82 @@ namespace Lab2_MTSD
 {
     public class MyList
     {
+        private List<char> list = new List<char>();
+
         public int Length()
         {
-            return 0;
+            return list.Count;
         }
 
         public void Append(char element)
         {
+            list.Add(element);
         }
 
         public void Insert(char element, int index)
         {
+            if (index < 0 || index > list.Count)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            list.Insert(index, element);
         }
 
         public char Delete(int index)
         {
-            return '\0';
+            if (index < 0 || index >= list.Count)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            char element = list[index];
+            list.RemoveAt(index);
+            return element;
         }
 
         public void DeleteAll(char element)
         {
+            list.RemoveAll(e => e == element);
         }
 
         public char Get(int index)
         {
-            return '\0';
+            if (index < 0 || index >= list.Count)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            return list[index];
         }
 
         public MyList Clone()
         {
-            return this;
+            MyList newList = new MyList();
+            newList.list = new List<char>(list);
+            return newList;
         }
 
         public void Reverse()
         {
+            list.Reverse();
         }
 
         public int FindFirst(char element)
         {
-            return '\0';
+            return list.IndexOf(element);
         }
 
         public int FindLast(char element)
         {
-            return '\0';
+            return list.LastIndexOf(element);
         }
 
         public void Clear()
         {
+            list.Clear();
         }
 
         public void Extend(MyList elements)
         {
+            list.AddRange(elements.list);
         }
     }
 }
