@@ -43,27 +43,25 @@ namespace Lab2_MTSD
 
         public void Insert(char element, int index)
         {
-            if (index < 0 || index > list.Count)
+            if (index < 0 || index > count)
             {
                 throw new ArgumentOutOfRangeException();
             }
-            list.Insert(index, element);
+
         }
 
         public char Delete(int index)
         {
-            if (index < 0 || index >= list.Count)
+            if (index < 0 || index >= count)
             {
                 throw new ArgumentOutOfRangeException();
             }
-            char element = list[index];
-            list.RemoveAt(index);
-            return element;
+
+            return '\0';
         }
 
         public void DeleteAll(char element)
         {
-            list.RemoveAll(e => e == element);
         }
 
         public char Get(int index)
@@ -83,36 +81,29 @@ namespace Lab2_MTSD
 
         public MyList Clone()
         {
-            MyList newList = new()
-            {
-                list = new List<char>(list)
-            };
-            return newList;
+            return this;
         }
 
         public void Reverse()
         {
-            list.Reverse();
         }
 
         public int FindFirst(char element)
         {
-            return list.IndexOf(element);
+            return 0;
         }
 
         public int FindLast(char element)
         {
-            return list.LastIndexOf(element);
+            return 0;
         }
 
         public void Clear()
         {
-            list.Clear();
         }
 
         public void Extend(MyList elements)
         {
-            list.AddRange(elements.list);
         }
     }
 }
