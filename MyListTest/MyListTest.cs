@@ -13,7 +13,7 @@ namespace MyListTest
             myList.Append('a');
             myList.Append('b');
 
-            Assert.AreEqual(myList.Length(), 2);
+            Assert.AreEqual(2, myList.Length());
         }
 
         [TestMethod]
@@ -23,7 +23,7 @@ namespace MyListTest
 
             myList.Append('d');
 
-            Assert.AreEqual(myList.Get(0), 'd');
+            Assert.AreEqual('d', myList.Get(0));
         }
 
         [TestMethod]
@@ -42,7 +42,7 @@ namespace MyListTest
             myList.Append('a');
             myList.Insert('f', 0);
 
-            Assert.AreEqual(myList.Get(0), 'f');
+            Assert.AreEqual('f', myList.Get(0));
         }
 
         [TestMethod]
