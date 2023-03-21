@@ -12,23 +12,20 @@ This program is made to demonstrate the opportunities of my custom-implemented D
 
 ## How to build
 #### 1. Clone the repository
-Download and install Git from the official site.
-Clone the repository from GitHub using the `git clone <url>` command from the command line or terminal. The URL can be found on the repository page on GitHub.
+- Download and install Git from the official site.
+- Clone the repository from GitHub using the `git clone <url>` command from the command line or terminal. The URL can be found on the repository page on GitHub.
 
 #### 2. Install the required software
-Download and install the ***.NET 7 SDK*** from the official Microsoft website.
-Install any code editor such as **Visual Studio Code** or **Visual Studio**.
+- Download and install the ***.NET 7 SDK*** from the official Microsoft website.
+- Install any code editor such as **Visual Studio Code** or **Visual Studio**.
 
 #### 3. Assemble the project
-Open a command prompt or terminal and navigate to the project code folder.
-Run the `dotnet restore` command to install all project dependencies.
-Run the `dotnet build` command to build the project.
+- Open a command prompt or terminal and navigate to the project code folder.
+- Run the `dotnet restore` command to install all project dependencies.
+- Run the `dotnet build` command to build the project.
 
 #### 4. Run the tests
-Run the `dotnet test` command to run the tests.
-
-
-If you get any error while compiling, make sure that all dependencies and required libraries are installed and configured correctly on your system. You can also check the compiler and linker settings in Visual Studio.
+- Run the `dotnet test` command to run the tests.
 
 ### My [Commit that breaks unit test](https://github.com/DokAndMax/Lab2-MTSD/commit/91247b55c1069ac9562fc8750804ab1d65bf9358)
 
