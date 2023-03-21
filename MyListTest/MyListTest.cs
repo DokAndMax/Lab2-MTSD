@@ -115,6 +115,7 @@ namespace MyListTest
             MyList clone = myList.Clone();
 
             Assert.IsNotNull(clone);
+            Assert.AreNotSame(myList, clone);
             Assert.AreEqual('j', clone.Get(0));
         }
 
