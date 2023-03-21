@@ -1,17 +1,44 @@
-﻿namespace Lab2_MTSD
+﻿using System.Threading;
+
+namespace Lab2_MTSD
 {
     public class MyList
     {
-        private List<char> list = new();
+        private class Node
+        {
+            public char Value;
+            public Node Next;
+            public Node Prev;
+
+            public Node(char value)
+            {
+                Value = value;
+            }
+        }
+        private Node? head;
+        private Node? tail;
+        private int count = 0;
 
         public int Length()
         {
-            return list.Count;
+            return count;
         }
 
         public void Append(char element)
         {
-            list.Add(element);
+            Node newNode = new(element);
+            if (tail is null)
+            {
+                head = newNode;
+                tail = newNode;
+            }
+            else
+            {
+                tail.Next = newNode;
+                newNode.Prev = tail;
+                tail = newNode;
+            }
+            count++;
         }
 
         public void Insert(char element, int index)
@@ -41,11 +68,17 @@
 
         public char Get(int index)
         {
-            if (index < 0 || index >= list.Count)
+            if (index < 0 || index >= count)
             {
                 throw new ArgumentOutOfRangeException();
             }
-            return list[index];
+
+            Node? node = head;
+            for (int i = 0; i < index; i++)
+            {
+                node = node.Next;
+            }
+            return node.Value;
         }
 
         public MyList Clone()
