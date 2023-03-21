@@ -16,7 +16,7 @@ Download and install Git from the official site.
 Clone the repository from GitHub using the `git clone <url>` command from the command line or terminal. The URL can be found on the repository page on GitHub.
 
 #### 2. Install the required software
-Download and install the ***.NET Core SDK*** from the official Microsoft website.
+Download and install the ***.NET 7 SDK*** from the official Microsoft website.
 Install any code editor such as **Visual Studio Code** or **Visual Studio**.
 
 #### 3. Assemble the project
