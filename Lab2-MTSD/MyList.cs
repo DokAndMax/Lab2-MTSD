@@ -160,21 +160,74 @@ namespace Lab2_MTSD
 
         public MyList Clone()
         {
-            return this;
+            MyList newList = new MyList();
+
+            Node currentNode = head;
+
+            while (currentNode != null)
+            {
+                newList.Append(currentNode.Value);
+                currentNode = currentNode.Next;
+            }
+
+            return newList;
         }
 
         public void Reverse()
         {
+            Node currentNode = head;
+            Node tempNode = null;
+
+            while (currentNode is not null)
+            {
+                tempNode = currentNode.Prev;
+                currentNode.Prev = currentNode.Next;
+                currentNode.Next = tempNode;
+                currentNode = currentNode.Prev;
+            }
+
+            if (tempNode is not null)
+            {
+                head = tempNode.Prev;
+            }
         }
 
         public int FindFirst(char element)
         {
-            return 0;
+            Node currentNode = head;
+            int index = 0;
+
+            while (currentNode != null)
+            {
+                if (currentNode.Value == element)
+                {
+                    return index;
+                }
+
+                currentNode = currentNode.Next;
+                index++;
+            }
+
+            return -1;
         }
 
         public int FindLast(char element)
         {
-            return 0;
+            Node currentNode = tail;
+            int index = count - 1;
+
+            while (currentNode is not null)
+            {
+                if (currentNode.Value == element)
+                {
+                    return index;
+                }
+
+                currentNode = currentNode.Prev;
+                index--;
+            }
+
+            return -1;
         }
 
         public void Clear()
@@ -186,6 +239,13 @@ namespace Lab2_MTSD
 
         public void Extend(MyList elements)
         {
+            Node currentNode = elements.head;
+
+            while (currentNode is not null)
+            {
+                Append(currentNode.Value);
+                currentNode = currentNode.Next;
+            }
         }
     }
 }
