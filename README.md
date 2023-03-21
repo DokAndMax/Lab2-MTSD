@@ -21,7 +21,7 @@ Install any code editor such as **Visual Studio Code** or **Visual Studio**.
 
 #### 3. Assemble the project
 Open a command prompt or terminal and navigate to the project code folder.
-Enter the `dotnet restore` command to install all project dependencies.
+Run the `dotnet restore` command to install all project dependencies.
 Run the `dotnet build` command to build the project.
 
 #### 4. Run the tests
