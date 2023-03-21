@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab2_MTSD
+﻿namespace Lab2_MTSD
 {
     public class MyList
     {
-        private List<char> list = new List<char>();
+        private List<char> list = new();
 
         public int Length()
         {
@@ -56,8 +50,10 @@ namespace Lab2_MTSD
 
         public MyList Clone()
         {
-            MyList newList = new MyList();
-            newList.list = new List<char>(list);
+            MyList newList = new()
+            {
+                list = new List<char>(list)
+            };
             return newList;
         }
 
