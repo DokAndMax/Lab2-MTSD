@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab2_MTSD
 {
-    internal class MyList
+    public class MyList
     {
         public int Length()
         {
