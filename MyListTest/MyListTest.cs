@@ -151,7 +151,7 @@ namespace MyListTest
             myList.Append('n');
             myList.Append('n');
 
-            Assert.AreEqual(1, myList.FindLast('m'));
+            Assert.AreEqual(1, myList.FindLast('n'));
         }
 
         [TestMethod]
