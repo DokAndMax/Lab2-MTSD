@@ -69,9 +69,10 @@ namespace MyListTest
             MyList myList = new();
 
             myList.Append('g');
-            myList.Delete(0);
+            myList.Append('g');
+            myList.Delete(1);
 
-            Assert.AreEqual(0, myList.Length());
+            Assert.AreEqual(1, myList.Length());
         }
 
         [TestMethod]
@@ -79,11 +80,12 @@ namespace MyListTest
         {
             MyList myList = new();
 
+            myList.Append('g');
             myList.Append('h');
             myList.Append('h');
             myList.DeleteAll('h');
 
-            Assert.AreEqual(0, myList.Length());
+            Assert.AreEqual(1, myList.Length());
         }
 
         [TestMethod]
@@ -93,7 +95,7 @@ namespace MyListTest
 
             myList.Append('i');
 
-            Assert.AreEqual(0, myList.Get(0));
+            Assert.AreEqual('i', myList.Get(0));
         }
 
         [TestMethod]
