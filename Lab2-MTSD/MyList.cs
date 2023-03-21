@@ -1,20 +1,19 @@
-﻿using System.Threading;
-
-namespace Lab2_MTSD
+﻿namespace Lab2_MTSD
 {
     public class MyList
     {
         private class Node
         {
-            public char Value;
-            public Node Next;
-            public Node Prev;
+            public char Value { get; set; }
+            public Node Next { get; set; }
+            public Node Prev { get; set; }
 
             public Node(char value)
             {
                 Value = value;
             }
         }
+
         private Node? head;
         private Node? tail;
         private int count = 0;
@@ -48,7 +47,7 @@ namespace Lab2_MTSD
                 throw new ArgumentOutOfRangeException();
             }
 
-            Node node = new(element);
+            Node? node = new(element);
             if (index == 0)
             {
                 node.Next = head;
@@ -63,7 +62,7 @@ namespace Lab2_MTSD
             }
             else
             {
-                Node current = head;
+                Node? current = head;
                 for (int i = 0; i < index; i++)
                 {
                     current = current.Next;
@@ -84,13 +83,13 @@ namespace Lab2_MTSD
                 throw new ArgumentOutOfRangeException();
             }
 
-            Node current = head;
+            Node? current = head;
             for (int i = 0; i < index; i++)
             {
                 current = current.Next;
             }
 
-            if (current.Prev != null)
+            if (current.Prev is not null)
             {
                 current.Prev.Next = current.Next;
             }
@@ -99,7 +98,7 @@ namespace Lab2_MTSD
                 head = current.Next;
             }
 
-            if (current.Next != null)
+            if (current.Next is not null)
             {
                 current.Next.Prev = current.Prev;
             }
@@ -114,12 +113,12 @@ namespace Lab2_MTSD
 
         public void DeleteAll(char element)
         {
-            Node current = head;
-            while (current != null)
+            Node? current = head;
+            while (current is not null)
             {
                 if (current.Value == element)
                 {
-                    if (current.Prev != null)
+                    if (current.Prev is not null)
                     {
                         current.Prev.Next = current.Next;
                     }
@@ -128,7 +127,7 @@ namespace Lab2_MTSD
                         head = current.Next;
                     }
 
-                    if (current.Next != null)
+                    if (current.Next is not null)
                     {
                         current.Next.Prev = current.Prev;
                     }
@@ -160,9 +159,9 @@ namespace Lab2_MTSD
 
         public MyList Clone()
         {
-            MyList newList = new MyList();
+            MyList newList = new();
 
-            Node currentNode = head;
+            Node? currentNode = head;
 
             while (currentNode != null)
             {
@@ -175,8 +174,8 @@ namespace Lab2_MTSD
 
         public void Reverse()
         {
-            Node currentNode = head;
-            Node tempNode = null;
+            Node? currentNode = head;
+            Node? tempNode = null;
 
             while (currentNode is not null)
             {
@@ -194,7 +193,7 @@ namespace Lab2_MTSD
 
         public int FindFirst(char element)
         {
-            Node currentNode = head;
+            Node? currentNode = head;
             int index = 0;
 
             while (currentNode != null)
@@ -213,7 +212,7 @@ namespace Lab2_MTSD
 
         public int FindLast(char element)
         {
-            Node currentNode = tail;
+            Node? currentNode = tail;
             int index = count - 1;
 
             while (currentNode is not null)
@@ -239,7 +238,7 @@ namespace Lab2_MTSD
 
         public void Extend(MyList elements)
         {
-            Node currentNode = elements.head;
+            Node? currentNode = elements.head;
 
             while (currentNode is not null)
             {
