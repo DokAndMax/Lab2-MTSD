@@ -84,7 +84,32 @@ namespace Lab2_MTSD
                 throw new ArgumentOutOfRangeException();
             }
 
-            return '\0';
+            Node current = head;
+            for (int i = 0; i < index; i++)
+            {
+                current = current.Next;
+            }
+
+            if (current.Prev != null)
+            {
+                current.Prev.Next = current.Next;
+            }
+            else
+            {
+                head = current.Next;
+            }
+
+            if (current.Next != null)
+            {
+                current.Next.Prev = current.Prev;
+            }
+            else
+            {
+                tail = current.Prev;
+            }
+
+            count--;
+            return current.Value;
         }
 
         public void DeleteAll(char element)
