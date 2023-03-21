@@ -114,6 +114,33 @@ namespace Lab2_MTSD
 
         public void DeleteAll(char element)
         {
+            Node current = head;
+            while (current != null)
+            {
+                if (current.Value == element)
+                {
+                    if (current.Prev != null)
+                    {
+                        current.Prev.Next = current.Next;
+                    }
+                    else
+                    {
+                        head = current.Next;
+                    }
+
+                    if (current.Next != null)
+                    {
+                        current.Next.Prev = current.Prev;
+                    }
+                    else
+                    {
+                        tail = current.Prev;
+                    }
+
+                    count--;
+                }
+                current = current.Next;
+            }
         }
 
         public char Get(int index)
@@ -152,6 +179,9 @@ namespace Lab2_MTSD
 
         public void Clear()
         {
+            head = null;
+            tail = null;
+            count = 0;
         }
 
         public void Extend(MyList elements)
