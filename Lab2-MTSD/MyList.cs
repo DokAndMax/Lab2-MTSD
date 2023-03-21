@@ -89,7 +89,7 @@
                 current = current.Next;
             }
 
-            if (current.Prev is null)
+            if (current.Prev is not null)
             {
                 current.Prev.Next = current.Next;
             }
